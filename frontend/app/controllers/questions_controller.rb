@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Overflow.new.questions
     @question = Question.new
-    @quote = HTTParty.get("https://api.github.com/zen", {headers: {'Authorization' => KEY, 'User-Agent' => 'bananaboat'}} )
+    @quote = HTTParty.get("https://api.github.com/zen", {headers: {'Authorization' => KEY, 'User-Agent' => 'gopherflow'}} )
   end
 
   def create
