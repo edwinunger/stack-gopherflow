@@ -1,0 +1,135 @@
+.answer_div{
+  font-family: verdana;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+#answer_block{
+  font-family: verdana;
+  font-size: 1.25em;
+  border-bottom: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.show_title{
+  font-family: verdana;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin: 5px;
+  display: inline-block;
+}
+
+.delete{
+  display: inline-block;
+}
+
+.edit{
+  display: inline-block;
+}
+
+.show_content{
+  font-family: verdana;
+  font-size: 1em;
+  margin: 5px;
+  width: auto;
+}
+
+.answer_section{
+  font-family: verdana;
+  font-weight: bold;
+  font-size: 1.3em;
+  display: block;
+}
+
+.a_title{
+  position: relative;
+  display: inline-block;
+  height: auto;
+  width: auto;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.a-title{
+  position: relative;
+  display: inline-block;
+  height: auto;
+  width: auto;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.a_content{
+  position: relative;
+  display: block;
+  height: auto;
+  width: auto;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.a-content{
+  position: relative;
+  display: block;
+  height: auto;
+  width: auto;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.a_up{
+  display: inline-block;
+  position: relative;
+  height: auto;
+}
+
+.a-up{
+  display: inline-block;
+  position: relative;
+  height: auto;
+}
+
+.a_down{
+  display: inline-block;
+  position: relative;
+  height: auto;
+}
+
+.a-down{
+  display: inline-block;
+  position: relative;
+  height: auto;
+}
+
+.answer_votes{
+  position: relative;
+  width: 30px;
+  height: auto;
+  text-align: center;
+  display: inline-block;
+}
+
+.answer-votes{
+  position: relative;
+  width: 30px;
+  height: auto;
+  text-align: center;
+  display: inline-block;
+}
+
+.a_form{
+  font-family: verdana;
+  font-size: 1em;
+  position: relative;
+  text-align: right;
+  right: 500px;
+  bottom: 20px;
+}

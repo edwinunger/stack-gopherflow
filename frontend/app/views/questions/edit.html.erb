@@ -1,0 +1,18 @@
+<iframe class="animation" src="http://clips.animatron.com/b0adcb2e0183ac81491d920ad2a4b0f0?w=1000&h=450&r=1&autoplay=1" width="1000" height="450" frameborder="0"></iframe>
+
+<span class="ask">Edit Question:</span>
+<div class="a_form">
+<%= form_for @question, :url => question_path(@question), :html => {:method => :put} do |form| %>
+<p>
+  <%= form.label :title %>
+  <%= form.text_field :title, :value => @question.title %>
+</p>
+<p>
+  <%= form.label :content %>
+  <%= form.text_area :content, :value => @question.content %>
+</p>
+<p>
+  <%= form.submit "Update" %>
+</p>
+<% end %>
+</div>

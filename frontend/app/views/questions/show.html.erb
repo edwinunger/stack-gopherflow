@@ -1,0 +1,52 @@
+<iframe class="animation" src="http://clips.animatron.com/f1bda786f612029a4b51c00cb4106096?w=1000&h=450&r=1&autoplay=1" width="1000" height="450" frameborder="0"></iframe>
+  <br>
+  <p class="quote"><%= @quote %> In bed.</p>
+<div class="question">
+  <div class="show_title"><%= @question['title'] %></div>
+  <div class="show_content"><%= @question['content'] %></div>
+  <%= form_for @question, :url => question_path(@question), :html => {:method => :delete} do |f| %>
+  <div class="delete"><%= f.submit "Delete" %></div>
+  <a class="edit" href="/questions/<%=@question['id']%>/edit">Edit Question</a>
+  <% end %>
+</div>
+
+
+<div class="answer_div">
+<span class="answer_section">Answers:</span>
+<% @answers.sort! { |a,b| b['votes'] <=> a['votes'] } %>
+<% @answers.each do |answer| %>
+  <%= button_to("△", "/questions/#{answer['question_id']}/answers/#{answer['id']}/upvote", method: "patch", form_class: "a_up") %>
+  <span class="answer_votes"><%= answer['votes'] %></span>
+  <%= button_to("▼", "/questions/#{answer['question_id']}/answers/#{answer['id']}/downvote", method: "patch", form_class: "a_down") %>
+  <span class="a_title"><%= answer['title'] %></span>
+  <span class="a_content"><%= answer['content'] %></span>
+<% end %>
+</div>
+
+
+<span class="ask">Post An Answer:</span>
+<div class="a_form">
+<%= form_for [@question, @answer] do |form| %>
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :content %>
+    <%= form.text_area :content %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+</div>
+
+<script id="answer_block" type="text/x-handlebars-template">
+  <form class="a-up" action = "/questions/{{data.question_id}}/answers/{{data.id}}/upvote" method="patch">
+  <input type="submit", value="△"></form>
+  <span class="answer-votes">{{ data.votes }}</span>
+  <form class="a-down" action = "/questions/{{data.question_id}}/answers/{{data.id}}/downvote" method="patch">
+  <input type="submit", value="▼"></form>
+  <span class="a-title">{{ data.title }}</span>
+  <span class="a-content">{{ data.content }}</span>
+</script>

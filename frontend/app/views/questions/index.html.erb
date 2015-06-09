@@ -1,0 +1,49 @@
+<iframe class="animation" src="http://clips.animatron.com/f1bda786f612029a4b51c00cb4106096?w=1000&h=450&r=1&autoplay=1" width="1000" height="450" frameborder="0"></iframe>
+  <br>
+  <p class="quote"><%= @quote %> In bed.</p>
+  <h3 class="title">Top Questions:</h3>
+
+  <div class="questions">
+    <ul>
+      <% @questions.sort! { |a,b| b['votes'] <=> a['votes'] } %>
+      <% @questions.each do |q| %>
+        <li id="question">
+          <%= button_to("△", question_upvote_path(q['id']), method: "patch", form_class: "q_up") %>
+          <div class="votes"><%=q['votes']%></div>
+          <%= button_to("▼", question_downvote_path(q['id']), method: "patch", form_class: "q_down") %>
+          <a class="q_title" href="/questions/<%= q['id'] %>"><%= q['title'] %></a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="live_markdown">
+    <div class="md_q_title"></div>
+    <div class="md_q_content"></div>
+  </div>
+
+  <span class="ask">Ask A Question:</span>
+  <div class="q_form">
+  <%= form_for @question do |f| %>
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :content %>
+      <%= f.text_area :content %>
+    </p>
+    <%= f.submit %>
+  <% end %>
+  </div>
+
+  <script id="question_block" type="text/x-handlebars-template">
+    <li id="question">
+      <form class="q-up" action="/questions/{{data.id}}/upvote" method="patch"><button type="submit">△</button></form>
+      <div class="votes">{{data.votes}}</div>
+      <form class="q-down" action="/questions/{{data.id}}/downvote" method="patch"><button type="submit">▼</button></form>
+      <a class="q-title" href="/questions/{{data.id}}">{{ data.title }}</a>
+    </li>
+  </script>
+</div>
